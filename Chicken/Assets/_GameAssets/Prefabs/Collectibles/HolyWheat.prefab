@@ -181,6 +181,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HolyWheatCollectible
   playerController: {fileID: 0}
-  increaseMovementSpeed: 15
-  increaseJumpForce: 10
-  duration: 5
+  wheatDesignSO: {fileID: 11400000, guid: a2d4274ebedd3444f8fdb463f7c5a6ca, type: 2}

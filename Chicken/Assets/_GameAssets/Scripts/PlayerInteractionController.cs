@@ -1,21 +1,28 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class PlayerInteractionController : MonoBehaviour
 {
+    private PlayerController playerController;
+
+    private void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Consts.WheatType.HOLY_WHEAT))
+        if (other.gameObject.TryGetComponent<ICollectible>(out var collectible))
         {
-            other.gameObject?.GetComponent<HolyWheatCollectible>().Collect();
+            collectible.Collect();
         }
-        if (other.CompareTag(Consts.WheatType.GOLD_WHEAT))
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<IBoostable>(out var boostable))
         {
-            other.gameObject?.GetComponent<GoldWheatCollectible>().Collect();
-        }
-        if (other.CompareTag(Consts.WheatType.ROTTEN_WHEAT))
-        {
-            other.gameObject?.GetComponent<RottenWheatCollectible>().Collect();
+            boostable.Boost(playerController);
         }
     }
 }

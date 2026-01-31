@@ -1,11 +1,9 @@
 using UnityEngine;
 
-public class HolyWheatCollectible : MonoBehaviour
+public class HolyWheatCollectible : MonoBehaviour, ICollectible
 {
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private float increaseMovementSpeed;
-    [SerializeField] private float increaseJumpForce;
-    [SerializeField] private float duration;
+    [SerializeField] private WheatDesignSO wheatDesignSO;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,8 +15,8 @@ public class HolyWheatCollectible : MonoBehaviour
 
     public void Collect()
     {
-        playerController.SetMovementSpeed(increaseMovementSpeed, duration);
-        playerController.SetJumpForece(increaseJumpForce, duration);
+        playerController.SetMovementSpeed(wheatDesignSO.increaseDecreaseMultiplier, wheatDesignSO.resetBoostDuration);
+        playerController.SetJumpForece(wheatDesignSO.increaseDecreaseMultiplier, wheatDesignSO.resetBoostDuration);
         Destroy(gameObject);
     }
 }

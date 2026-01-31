@@ -181,5 +181,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoldWheatCollectible
   playerController: {fileID: 0}
-  increaseMovementSpeed: 15
-  duration: 3
+  wheatDesignSO: {fileID: 11400000, guid: 82c0e428df7a79f4b8c85aaafa508ced, type: 2}

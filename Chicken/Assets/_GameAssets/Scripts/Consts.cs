@@ -11,6 +11,11 @@ public class Consts
 
     }
 
+    public struct OtherAnimations
+    {
+        public const string IS_SPATULA_JUMPING = "IsSpatulaJumping";
+    }
+
 
     public struct WheatType
     {

@@ -220,4 +220,9 @@ public class PlayerController : MonoBehaviour
     {
         _jumpForce = startingJumpForce;
     }
+
+    public Rigidbody GetPlayerRigidBody()
+    {
+        return _rigidbody;
+    }
 }
